@@ -1,14 +1,32 @@
 package pizzeria.order_system.menu.repositories.menu_item;
 
-import java.util.List;
-
 import pizzeria.order_system.menu.exceptions.MenuItemNotFoundException;
 import pizzeria.order_system.menu.models.MenuItem;
 
-public interface MenuItemRepository {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
-    List<? extends MenuItem> findAll();
+public abstract class MenuItemRepository {
 
-    MenuItem findById(int id) throws MenuItemNotFoundException;
+    protected List<MenuItem> menuItems;
 
+    protected MenuItemRepository() {
+        menuItems = new ArrayList<>();
+    }
+
+    public List<MenuItem> findAll() {
+        return menuItems;
+    }
+
+    public MenuItem findById(int id) throws MenuItemNotFoundException {
+        Optional<MenuItem> optionalMenuItem = this.menuItems.stream()
+                .filter(menuItem -> menuItem.getId() == id)
+                .findFirst();
+
+        if (optionalMenuItem.isPresent()) {
+            return optionalMenuItem.get();
+        }
+        throw new MenuItemNotFoundException("Drink with id: " + id + " not found.");
+    }
 }

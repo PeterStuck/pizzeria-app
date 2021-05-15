@@ -1,10 +1,8 @@
-package pizzeria.order_system.menu.repositories;
+package pizzeria.order_system.menu.repositories.menu_item;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pizzeria.order_system.menu.exceptions.MenuItemNotFoundException;
-import pizzeria.order_system.menu.repositories.menu_item.DrinkRepository;
-import pizzeria.order_system.menu.repositories.menu_item.MenuItemRepository;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
