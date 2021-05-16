@@ -4,42 +4,45 @@ import java.util.Scanner;
 
 public class ConsoleUserInteractor implements UserInteractor{
 
+    private Scanner scan;
+
+    public ConsoleUserInteractor() {
+        this.scan = new Scanner(System.in);
+    }
 
     @Override
     public String askForPizza() {
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Czy chciałbyś/-abyś zamówić pizzę?");
-        String userReply = scan.nextLine();
-        if (userReply.toLowerCase() == "tak" || userReply.toLowerCase() == "ta" || userReply.toLowerCase() == "t"){
-            return "yes";
-        }
-        else {
-            return "no";
-        }
+        System.out.println("Czy chciałbyś/-abyś zamówić pizzę? ([T]ak/[N]ie): ");
+        return scan.nextLine().toLowerCase();
     }
 
     @Override
     public int askWhatPizza() {
-        return 0;
+        System.out.println("Jaką pizzę sobie życzysz? (Wpisz numer z menu: )");
+        return scan.nextInt();
     }
 
     @Override
     public String askForDrink() {
-        return null;
+        System.out.println("Czy chciałbyś/-abyś zamówić napój? ([T]ak/[N]ie): ");
+        return scan.nextLine().toLowerCase();
     }
 
     @Override
     public int askWhatDrink() {
-        return 0;
+        System.out.println("Jaki napój sobie życzysz? (Wpisz numer z menu: )");
+        return scan.nextInt();
     }
 
     @Override
     public int askHowMany() {
-        return 0;
+        System.out.println("W jakiej ilości?: )");
+        return scan.nextInt();
     }
 
     @Override
     public String askForConfirmation() {
-        return null;
+        System.out.println("Czy chciałbyś zakończyć składanie zamówienia i przejść do podsumowania: ");
+        return scan.nextLine().toLowerCase();
     }
 }
