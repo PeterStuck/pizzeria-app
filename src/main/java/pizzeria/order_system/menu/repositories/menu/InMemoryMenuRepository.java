@@ -19,7 +19,7 @@ public class InMemoryMenuRepository implements MenuRepository {
     }
 
     @Override
-    public List<? extends MenuItem> findAllPizzas() {
+    public List<MenuItem> findAllPizzas() {
         return this.pizzaRepo.findAll();
     }
 
@@ -29,7 +29,7 @@ public class InMemoryMenuRepository implements MenuRepository {
     }
 
     @Override
-    public List<? extends MenuItem> findAllDrinks() {
+    public List<MenuItem> findAllDrinks() {
         return this.drinkRepo.findAll();
     }
 
