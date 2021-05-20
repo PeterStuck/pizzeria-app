@@ -1,5 +1,7 @@
-package pizzeria.ui;
+package pizzeria.ui.workers;
 
+import pizzeria.ui.interactors.ConsoleUserInteractor;
+import pizzeria.ui.interactors.UserInteractor;
 import pizzeria.ui.printers.ConsoleMenuPrinter;
 import pizzeria.ui.printers.MenuPrinter;
 
@@ -22,26 +24,35 @@ public class MenuService {
         printer.showLogo();
         printer.greetMessage();
     }
-    private boolean menuItemConfimed(String userReply){
+    private boolean userReplyConfimed(String userReply){
         return userReply.equals("tak") || userReply.equals("ta") || userReply.equals("t");
     }
-    public int pizzaItemNumber(){
+    public boolean askForPizza(){
         String pizzaChosen = this.userInteractor.askForPizza();
+        return this.userReplyConfimed(pizzaChosen);
+    }
+    public int pizzaItemNumber(){
         int pizzaChosenNumber = 0;
-        if (this.menuItemConfimed(pizzaChosen)){
-            printer.showPizzas();
-            pizzaChosenNumber = this.userInteractor.askWhatPizza();
-        }
+        printer.showPizzas();
+        pizzaChosenNumber = this.userInteractor.askWhatPizza();
+
         return pizzaChosenNumber;
     }
-    public int drinkItemNumber(){
+    public boolean askForDrink(){
         String drinkChosen = this.userInteractor.askForDrink();
+        return this.userReplyConfimed(drinkChosen);
+    }
+    public int drinkItemNumber(){
         int drinkChosenNumber = 0;
-        if (this.menuItemConfimed(drinkChosen)){
-            printer.showDrinks();
-            drinkChosenNumber = this.userInteractor.askWhatDrink();
-        }
+        printer.showDrinks();
+        drinkChosenNumber = this.userInteractor.askWhatDrink();
+
         return drinkChosenNumber;
     }
-
+    public int howManyItems(){
+        return this.userInteractor.askHowMany();
+    }
+    public boolean confirmOrder() {
+        return userReplyConfimed(userInteractor.askForConfirmation());
+    }
 }

@@ -1,22 +1,39 @@
 package pizzeria.ui.printers;
 
-import pizzeria.order_system.menu.exceptions.MenuItemNotFoundException;
-import pizzeria.order_system.menu.repositories.menu.InMemoryMenuRepository;
-import pizzeria.order_system.menu.repositories.menu.MenuRepository;
-import pizzeria.ui.OrderManager;
+import pizzeria.order_system.menu.models.MenuItem;
+import pizzeria.order_system.order.models.Order;
+import pizzeria.order_system.order.models.OrderItem;
+import pizzeria.order_system.order.utils.OrderTotalCalculator;
+
+import java.util.List;
 
 public class ConsoleOrderPrinter implements OrderPrinter{
-    private MenuRepository repo;
-    private OrderManager orderManager = new OrderManager();
-    public ConsoleOrderPrinter() {repo = new InMemoryMenuRepository(); }
+    private String horizontalLine = "_______________________";
+    private Order order;
 
-    @Override
-    public void showOrderSummary() throws MenuItemNotFoundException {
-        orderManager.makeAnOrder();
+    public ConsoleOrderPrinter(Order order) {
+        this.order = order;
     }
 
     @Override
-    public void confirmOrder() {
-
+    public void showOrderSummary() {
+        List<OrderItem> orderList = order.getOrderList();
+        System.out.println(horizontalLine+"\n\tPODSUMOWANIE\n"+horizontalLine);
+        for (OrderItem orderItem : orderList){
+            MenuItem tmpItem = orderItem.getMenuItem();
+            System.out.println(
+                    tmpItem.getId()+"\t"+
+                    tmpItem.getName()+" "+
+                    tmpItem.getPrice()+" x"+
+                    orderItem.getQuantity()
+            );
+        }
+        System.out.println(horizontalLine+"\nSUMA\t\t\t"+ convertFloatToPriceFormat(OrderTotalCalculator.calculateOrderTotal(order)));
     }
+
+    private String convertFloatToPriceFormat(float price) {
+        return String.format("%.2f", price);
+    }
+
 }
+

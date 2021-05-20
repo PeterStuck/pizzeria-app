@@ -1,40 +1,37 @@
 package pizzeria.files_management;
 
-import pizzeria.order_system.menu.models.ItemCategory;
-import pizzeria.order_system.menu.models.Pizza;
 import pizzeria.order_system.order.models.Order;
-import pizzeria.order_system.order.models.OrderItem;
 import pizzeria.order_system.order.utils.OrderTotalCalculator;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 public class FileOrderLogWriter {
 
+    private final OrderConverter converter;
+    private Order order;
+
     private String dataSeparator;
     private final String LOG_FILE_PATH = "src/order_log.dat";
-    private final OrderConverter converter;
 
-    public FileOrderLogWriter() {
+    public FileOrderLogWriter(Order order) {
         this.dataSeparator = " - ";
-        this.converter = new OrderConverter();
+        this.order = order;
+        this.converter = new OrderConverter(order.getOrderList());
     }
 
-    public void registerOrder(Order order) {
+    public void registerOrder() {
         try {
             FileWriter writer = new FileWriter(LOG_FILE_PATH, true);
             BufferedWriter bw = new BufferedWriter(writer);
 
-            List<OrderItem> orderedItems = order.getOrderList();
             bw.write(
                     this.getCurrentDate() + this.dataSeparator +
-                        this.converter.convertOrderedFoodToString(orderedItems) + ", " +
-                        this.converter.convertOrderedDrinksToString(orderedItems) + this.dataSeparator +
+                        this.converter.convertOrderedFoodToString() + ", " +
+                        this.converter.convertOrderedDrinksToString() + this.dataSeparator +
                         convertFloatToPriceFormat(OrderTotalCalculator.calculateOrderTotal(order)) + " PLN"
             );
             bw.newLine();
@@ -61,15 +58,7 @@ public class FileOrderLogWriter {
         this.dataSeparator = dataSeparator;
     }
 
-    public static void main(String[] args) throws ParseException {
-        Pizza pizza = new Pizza(1, "TEST", 11.0F, ItemCategory.PIZZA, null);
-        Pizza pizza2 = new Pizza(2, "TEST2", 11.0F, ItemCategory.PIZZA, null);
-
-        Order order = new Order();
-        order.addItemToOrder(pizza);
-        order.addItemToOrder(pizza2);
-
-        var orderLog = new FileOrderLogWriter();
-        orderLog.registerOrder(order);
+    public void setOrder(Order order) {
+        this.order = order;
     }
 }

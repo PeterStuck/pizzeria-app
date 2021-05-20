@@ -1,4 +1,4 @@
-package pizzeria.ui;
+package pizzeria.ui.interactors;
 
 import java.util.Scanner;
 
@@ -42,7 +42,7 @@ public class ConsoleUserInteractor implements UserInteractor{
 
     @Override
     public String askForConfirmation() {
-        System.out.println("Czy chciałbyś zakończyć składanie zamówienia i przejść do podsumowania: ");
+        System.out.println("Czy chciałbyś zakończyć składanie zamówienia i przejść do podsumowania (Tak/Nie): ");
         return scan.nextLine().toLowerCase();
     }
 
