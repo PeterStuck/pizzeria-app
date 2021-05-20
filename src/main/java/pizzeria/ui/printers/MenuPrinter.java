@@ -8,4 +8,5 @@ public interface MenuPrinter {
 
     void showDrinks();
 
+    void greetMessage();
 }
