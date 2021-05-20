@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface MenuRepository {
 
-    List<? extends MenuItem> findAllPizzas();
+    List<MenuItem> findAllPizzas();
 
     MenuItem findPizzaById(int id) throws MenuItemNotFoundException;
 
-    List<? extends MenuItem> findAllDrinks();
+    List<MenuItem> findAllDrinks();
 
     MenuItem findDrinkById(int id) throws MenuItemNotFoundException;
 }
