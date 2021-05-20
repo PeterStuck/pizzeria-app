@@ -12,32 +12,32 @@ public class ConsoleUserInteractor implements UserInteractor{
 
     @Override
     public String askForPizza() {
-        System.out.println("Czy chciałbyś/-abyś zamówić pizzę? ([T]ak/[N]ie): ");
+        System.out.println("Czy chciałbyś/-abyś zamówić pizzę? (Tak/Nie): ");
         return scan.nextLine().toLowerCase();
     }
 
     @Override
     public int askWhatPizza() {
         System.out.println("Jaką pizzę sobie życzysz? (Wpisz numer z menu: )");
-        return scan.nextInt();
+        return Integer.parseInt(scan.nextLine());
     }
 
     @Override
     public String askForDrink() {
-        System.out.println("Czy chciałbyś/-abyś zamówić napój? ([T]ak/[N]ie): ");
+        System.out.println("Czy chciałbyś/-abyś zamówić napój? (Tak/Nie): ");
         return scan.nextLine().toLowerCase();
     }
 
     @Override
     public int askWhatDrink() {
-        System.out.println("Jaki napój sobie życzysz? (Wpisz numer z menu: )");
-        return scan.nextInt();
+        System.out.println("Jaki napój sobie życzysz? (Wpisz numer z menu): ");
+        return Integer.parseInt(scan.nextLine());
     }
 
     @Override
     public int askHowMany() {
-        System.out.println("W jakiej ilości?: )");
-        return scan.nextInt();
+        System.out.println("W jakiej ilości?: ");
+        return Integer.parseInt(scan.nextLine());
     }
 
     @Override
@@ -45,4 +45,5 @@ public class ConsoleUserInteractor implements UserInteractor{
         System.out.println("Czy chciałbyś zakończyć składanie zamówienia i przejść do podsumowania: ");
         return scan.nextLine().toLowerCase();
     }
+
 }

@@ -1,5 +1,7 @@
 package pizzeria.files_management;
 
+import pizzeria.order_system.menu.models.ItemCategory;
+import pizzeria.order_system.menu.models.Pizza;
 import pizzeria.order_system.order.models.Order;
 import pizzeria.order_system.order.models.OrderItem;
 import pizzeria.order_system.order.utils.OrderTotalCalculator;
@@ -7,6 +9,7 @@ import pizzeria.order_system.order.utils.OrderTotalCalculator;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -56,5 +59,17 @@ public class FileOrderLogWriter {
 
     public void setDataSeparator(String dataSeparator) {
         this.dataSeparator = dataSeparator;
+    }
+
+    public static void main(String[] args) throws ParseException {
+        Pizza pizza = new Pizza(1, "TEST", 11.0F, ItemCategory.PIZZA, null);
+        Pizza pizza2 = new Pizza(2, "TEST2", 11.0F, ItemCategory.PIZZA, null);
+
+        Order order = new Order();
+        order.addItemToOrder(pizza);
+        order.addItemToOrder(pizza2);
+
+        var orderLog = new FileOrderLogWriter();
+        orderLog.registerOrder(order);
     }
 }
