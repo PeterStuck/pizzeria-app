@@ -26,9 +26,11 @@ public class ConsoleMenuPrinter implements MenuPrinter {
                 "                                                            ");
         System.out.println();
     }
+
     public void greetMessage(){
         System.out.println("Witaj w Buon Giorno!");
     }
+
     @Override
     public void showPizzas() {
         System.out.println("--+ Pizza +--");
@@ -54,13 +56,5 @@ public class ConsoleMenuPrinter implements MenuPrinter {
             System.out.println("____________________");
         }
     }
-
-
-    public static void main(String[] args) {
-        var printer = new ConsoleMenuPrinter();
-        printer.showLogo();
-
-    }
-
 
 }

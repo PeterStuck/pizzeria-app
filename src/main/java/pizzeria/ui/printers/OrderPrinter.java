@@ -6,6 +6,4 @@ public interface OrderPrinter {
 
     void showOrderSummary() throws MenuItemNotFoundException;
 
-
-
 }

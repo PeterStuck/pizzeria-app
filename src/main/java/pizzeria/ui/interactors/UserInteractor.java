@@ -14,4 +14,6 @@ public interface UserInteractor {
 
     String askForConfirmation();
 
+    String askForAnotherItems();
+
 }

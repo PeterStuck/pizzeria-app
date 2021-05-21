@@ -1,7 +1,6 @@
 package pizzeria.order_system.menu.repositories.menu_item;
 
 import pizzeria.order_system.menu.exceptions.MenuItemNotFoundException;
-import pizzeria.order_system.menu.models.ItemCategory;
 import pizzeria.order_system.menu.models.MenuItem;
 
 import java.util.ArrayList;

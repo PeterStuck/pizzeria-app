@@ -12,14 +12,18 @@ public class System {
 
     public void makeAnOrder() {
         orderManager.makeAnOrder();
-        Order order = orderManager.getOrder();
-        orderPrinter = new ConsoleOrderPrinter(order);
-        orderPrinter.showOrderSummary();
-        if(orderManager.confirmOrder()){
-            orderLog = new FileOrderLogWriter(order);
-            orderLog.registerOrder();
-        }
 
+        Order order = orderManager.getOrder();
+
+        if (order.getOrderList().size() > 0) {
+            orderPrinter = new ConsoleOrderPrinter(order);
+            orderPrinter.showOrderSummary();
+
+            if(orderManager.confirmOrder()){
+                orderLog = new FileOrderLogWriter(order);
+                orderLog.registerOrder();
+            }
+        }
     }
 
     public static void main(String[] args){
