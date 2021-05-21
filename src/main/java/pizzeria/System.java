@@ -12,9 +12,11 @@ public class System {
 
     public void makeAnOrder() {
         orderManager.makeAnOrder();
+
         Order order = orderManager.getOrder();
         orderPrinter = new ConsoleOrderPrinter(order);
         orderPrinter.showOrderSummary();
+
         if(orderManager.confirmOrder()){
             orderLog = new FileOrderLogWriter(order);
             orderLog.registerOrder();

@@ -1,4 +1,4 @@
-package pizzeria.order_system.order.utils;
+package pizzeria.order_system.order.utility;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -6,9 +6,6 @@ import pizzeria.order_system.menu.models.ItemCategory;
 import pizzeria.order_system.menu.models.MenuItem;
 import pizzeria.order_system.menu.models.Pizza;
 import pizzeria.order_system.order.models.Order;
-import pizzeria.order_system.order.models.OrderItem;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;

@@ -1,7 +1,7 @@
 package pizzeria.files_management;
 
 import pizzeria.order_system.order.models.Order;
-import pizzeria.order_system.order.utils.OrderTotalCalculator;
+import pizzeria.order_system.order.utility.OrderTotalCalculator;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

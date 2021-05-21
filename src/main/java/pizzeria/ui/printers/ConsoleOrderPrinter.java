@@ -3,7 +3,7 @@ package pizzeria.ui.printers;
 import pizzeria.order_system.menu.models.MenuItem;
 import pizzeria.order_system.order.models.Order;
 import pizzeria.order_system.order.models.OrderItem;
-import pizzeria.order_system.order.utils.OrderTotalCalculator;
+import pizzeria.order_system.order.utility.OrderTotalCalculator;
 
 import java.util.List;
 
