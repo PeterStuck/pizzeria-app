@@ -13,4 +13,5 @@ public interface MenuRepository {
     List<MenuItem> findAllDrinks();
 
     MenuItem findDrinkById(int id) throws MenuItemNotFoundException;
+
 }

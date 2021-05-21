@@ -9,7 +9,7 @@ import java.util.List;
 
 public class DrinkRepository extends MenuItemRepository {
 
-    private List<MenuItem> allDrinks = Arrays.asList(
+    private final List<MenuItem> allDrinks = Arrays.asList(
             new Drink(1, "Coca-Cola", 2.99F, ItemCategory.DRINK),
             new Drink(2, "Fanta", 2.99F, ItemCategory.DRINK),
             new Drink(3, "Woda Mineralna", 0.99F, ItemCategory.DRINK),
