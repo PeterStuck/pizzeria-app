@@ -15,11 +15,11 @@ public abstract class MenuItemRepository {
         menuItems = new ArrayList<>();
     }
 
-    public List<MenuItem> findAll() {
+    public final List<MenuItem> findAll() {
         return menuItems;
     }
 
-    public MenuItem findById(int id) throws MenuItemNotFoundException {
+    public final MenuItem findById(int id) throws MenuItemNotFoundException {
         Optional<MenuItem> optionalMenuItem = this.menuItems.stream()
                 .filter(menuItem -> menuItem.getId() == id)
                 .findFirst();

@@ -9,7 +9,7 @@ import java.util.List;
 
 public class PizzaRepository extends MenuItemRepository {
 
-    private List<MenuItem> allPizzas = Arrays.asList(
+    private final List<MenuItem> allPizzas = Arrays.asList(
             new Pizza(1, "Margherita", 14.99F, ItemCategory.PIZZA, Arrays.asList("ser","sos pomidorowy")),
             new Pizza(2, "Peperoni", 14.99F, ItemCategory.PIZZA, Arrays.asList("ser","sos pomidorowy", "salami")),
             new Pizza(3, "Capriciosa", 15.99F, ItemCategory.PIZZA, Arrays.asList("ser","sos pomidorowy","szynka","pieczarki")),

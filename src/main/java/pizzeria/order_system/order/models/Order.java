@@ -28,8 +28,8 @@ public class Order {
 
     private void addNewItemToOrderOrIncreaseQuantity(MenuItem orderedItem) {
         Optional<OrderItem> orderItemOptional = this.orderList.stream()
-                .filter(oi -> oi.getMenuItem().getId() == orderedItem.getId())
                 .filter(oi -> oi.getMenuItem().getCategory() == orderedItem.getCategory())
+                .filter(oi -> oi.getMenuItem().getId() == orderedItem.getId())
                 .findFirst();
 
         if (orderItemOptional.isPresent()) {
