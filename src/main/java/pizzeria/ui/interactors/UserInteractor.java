@@ -1,4 +1,4 @@
-package pizzeria.ui;
+package pizzeria.ui.interactors;
 
 public interface UserInteractor {
 
