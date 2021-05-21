@@ -14,45 +14,54 @@ public class MenuService {
         this.userInteractor = new ConsoleUserInteractor();
         this.showStartScreen();
     }
-    public void setPrinter(MenuPrinter printer){
-        this.printer = printer;
-    }
-    public void setUserInteractor(UserInteractor userInteractor){
-        this.userInteractor = userInteractor;
-    }
-    private void showStartScreen(){
+
+    private void showStartScreen() {
         printer.showLogo();
         printer.greetMessage();
     }
-    private boolean userReplyConfimed(String userReply){
-        return userReply.equals("tak") || userReply.equals("ta") || userReply.equals("t");
+
+    public boolean askForPizza() {
+        return this.userReplyConfimed(this.userInteractor.askForPizza());
     }
-    public boolean askForPizza(){
-        String pizzaChosen = this.userInteractor.askForPizza();
-        return this.userReplyConfimed(pizzaChosen);
-    }
-    public int pizzaItemNumber(){
-        int pizzaChosenNumber = 0;
+
+    public int pizzaItemNumber() {
         printer.showPizzas();
-        pizzaChosenNumber = this.userInteractor.askWhatPizza();
 
-        return pizzaChosenNumber;
+        return this.userInteractor.askWhatPizza();
     }
-    public boolean askForDrink(){
-        String drinkChosen = this.userInteractor.askForDrink();
-        return this.userReplyConfimed(drinkChosen);
+
+    public boolean askForDrink() {
+        return this.userReplyConfimed(this.userInteractor.askForDrink());
     }
-    public int drinkItemNumber(){
-        int drinkChosenNumber = 0;
+
+    public int drinkItemNumber() {
         printer.showDrinks();
-        drinkChosenNumber = this.userInteractor.askWhatDrink();
 
-        return drinkChosenNumber;
+        return this.userInteractor.askWhatDrink();
     }
-    public int howManyItems(){
+
+    public int howManyItems() {
         return this.userInteractor.askHowMany();
     }
+
+    public boolean askForOtherItems() {
+        return this.userReplyConfimed(userInteractor.askForAnotherItems());
+    }
+
     public boolean confirmOrder() {
         return userReplyConfimed(userInteractor.askForConfirmation());
     }
+
+    private boolean userReplyConfimed(String userReply) {
+        return userReply.equals("tak") || userReply.equals("ta") || userReply.equals("t");
+    }
+
+    public void setPrinter(MenuPrinter printer){
+        this.printer = printer;
+    }
+
+    public void setUserInteractor(UserInteractor userInteractor){
+        this.userInteractor = userInteractor;
+    }
+
 }

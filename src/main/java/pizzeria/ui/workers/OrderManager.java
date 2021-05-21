@@ -7,9 +7,24 @@ import pizzeria.order_system.menu.repositories.menu.MenuRepository;
 import pizzeria.order_system.order.models.Order;
 
 public class OrderManager {
-    private MenuService service = new MenuService();
-    private Order order = new Order();
-    private MenuRepository repo = new InMemoryMenuRepository();
+    private MenuService service;
+    private Order order;
+    private MenuRepository repo;
+
+    public OrderManager() {
+        service = new MenuService();
+        order = new Order();
+        repo = new InMemoryMenuRepository();
+    }
+
+    public void makeAnOrder() {
+        this.addPizzaToOrder();
+        this.addDrinkToOrder();
+
+        if (this.isAnotherItemsRequested()) {
+            this.makeAnOrder();
+        }
+    }
 
     private void addPizzaToOrder() {
         boolean isPizzaChosen = service.askForPizza();
@@ -17,13 +32,12 @@ public class OrderManager {
             this.addPizzaToOrderIfSelected();
         }
     }
+
     private void addPizzaToOrderIfSelected() {
-        try{
+        try {
             int chosenPizzaNumber = service.pizzaItemNumber();
-            if (chosenPizzaNumber != 0) {
-                MenuItem chosenPizza = repo.findPizzaById(chosenPizzaNumber);
-                this.askForQuantityAndComputeQuantityOfItem(chosenPizza);
-            }
+            MenuItem chosenPizza = repo.findPizzaById(chosenPizzaNumber);
+            this.askForQuantityAndComputeQuantityOfItem(chosenPizza);
         } catch (MenuItemNotFoundException e){
             System.out.println("Nie znaleziono pizzy o takim numerze");
             addPizzaToOrderIfSelected();
@@ -32,19 +46,19 @@ public class OrderManager {
             addPizzaToOrderIfSelected();
         }
     }
+
     private void addDrinkToOrder() {
         boolean isDrinkChosen = service.askForDrink();
         if(isDrinkChosen){
             this.addDrinkToOrderIfSelected();
         }
     }
+
     private void addDrinkToOrderIfSelected() {
-        try{
+        try {
             int chosenDrinkNumber = service.drinkItemNumber();
-            if (chosenDrinkNumber != 0){
-                MenuItem chosenDrink = repo.findDrinkById(chosenDrinkNumber);
-                this.askForQuantityAndComputeQuantityOfItem(chosenDrink);
-            }
+            MenuItem chosenDrink = repo.findDrinkById(chosenDrinkNumber);
+            this.askForQuantityAndComputeQuantityOfItem(chosenDrink);
         } catch (MenuItemNotFoundException e){
             System.out.println("Nie znaleziono napoju o takim numerze");
             addDrinkToOrderIfSelected();
@@ -52,7 +66,6 @@ public class OrderManager {
             System.out.println("Ups, coś poszło nie tak, spróbuj jeszcze raz");
             addDrinkToOrderIfSelected();
         }
-
     }
 
     private void askForQuantityAndComputeQuantityOfItem(MenuItem item) {
@@ -62,13 +75,26 @@ public class OrderManager {
         }
     }
 
-    public void makeAnOrder() {
-        this.addPizzaToOrder();
-        this.addDrinkToOrder();
+    public boolean isAnotherItemsRequested() {
+        return this.service.askForOtherItems();
     }
+
     public boolean confirmOrder() {
         return this.service.confirmOrder();
     }
+
+    public void setService(MenuService service) {
+        this.service = service;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
+    public void setRepo(MenuRepository repo) {
+        this.repo = repo;
+    }
+
     public MenuService getService() {
         return service;
     }

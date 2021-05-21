@@ -1,7 +1,5 @@
 package pizzeria.order_system.order.utility;
 
-import pizzeria.order_system.menu.models.ItemCategory;
-import pizzeria.order_system.menu.models.Pizza;
 import pizzeria.order_system.order.models.Order;
 import pizzeria.order_system.order.models.OrderItem;
 

@@ -14,14 +14,16 @@ public class System {
         orderManager.makeAnOrder();
 
         Order order = orderManager.getOrder();
-        orderPrinter = new ConsoleOrderPrinter(order);
-        orderPrinter.showOrderSummary();
 
-        if(orderManager.confirmOrder()){
-            orderLog = new FileOrderLogWriter(order);
-            orderLog.registerOrder();
+        if (order.getOrderList().size() > 0) {
+            orderPrinter = new ConsoleOrderPrinter(order);
+            orderPrinter.showOrderSummary();
+
+            if(orderManager.confirmOrder()){
+                orderLog = new FileOrderLogWriter(order);
+                orderLog.registerOrder();
+            }
         }
-
     }
 
     public static void main(String[] args){
