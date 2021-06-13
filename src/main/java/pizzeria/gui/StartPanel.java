@@ -10,7 +10,7 @@ public class StartPanel extends AbstractGridBagPanel {
     public StartPanel(JFrame parentFrame) {
         super(parentFrame);
 
-
+        setBackground(new Color(255, 231, 163));
         JLabel label = new JLabel();
         label.setIcon(new ImageIcon("src\\main\\java\\assets\\logo.png"));
         label.setFont(new Font(Font.SERIF, Font.BOLD, 30));

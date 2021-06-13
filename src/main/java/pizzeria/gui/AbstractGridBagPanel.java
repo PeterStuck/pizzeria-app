@@ -17,6 +17,10 @@ public abstract class AbstractGridBagPanel extends JPanel {
         this.parentFrame = parentFrame;
         setLayout(new GridBagLayout());
 
+        setPreferredSize(new Dimension(1000, 500));
+        setMinimumSize(new Dimension(1000, 500));
+        setMaximumSize(new Dimension(1000, 500));
+
         setVisible(true);
     }
 
