@@ -17,7 +17,8 @@ public class PizzaRepository extends MenuItemRepository {
             new Pizza(5, "Paco", 17.99F, ItemCategory.PIZZA, Arrays.asList("ser","sos pomidorowy","salami","boczek","cebula")),
             new Pizza(6, "Diaboli", 20.99F, ItemCategory.PIZZA, Arrays.asList("ser","sos pomidorowy","salami","boczek","cebula","kabanos","tabasco","cebula")),
             new Pizza(7, "Camaro", 19.99F, ItemCategory.PIZZA, Arrays.asList("ser", "kurczak", "kukurydza", "cebula", "majonez", "sos słodko-pikantny", "sos pomidorowy")),
-            new Pizza(8, "Hawajska", 12.99F, ItemCategory.PIZZA, Arrays.asList("ser","sos pomidorowy","ananas","szynka"))
+            new Pizza(8, "Hawajska", 12.99F, ItemCategory.PIZZA, Arrays.asList("ser","sos pomidorowy","ananas","szynka")),
+            new Pizza(9, "Polska", 12.99F, ItemCategory.PIZZA, Arrays.asList("kiełbasa wiejsca","cebula","czosnek","skwarki", "boczek", "ogórek kiszony"))
     );
 
     public PizzaRepository() {
