@@ -1,5 +1,8 @@
 package pizzeria.gui.panels;
 
+import pizzeria.gui.CategorySelector;
+import pizzeria.gui.TopHeader;
+
 import javax.swing.*;
 import java.awt.*;
 

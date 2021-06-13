@@ -1,5 +1,7 @@
 package pizzeria.gui;
 
+import pizzeria.gui.panels.AbstractGridBagPanel;
+
 import javax.swing.*;
 import java.awt.*;
 
