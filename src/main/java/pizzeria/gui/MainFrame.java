@@ -4,10 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MainFrame extends JFrame implements Runnable {
-
     private final GridBagConstraints gbc = new GridBagConstraints();
 
     public MainFrame() {
+
         setTitle("Buon Giorno");
         setLayout(new GridBagLayout());
 
