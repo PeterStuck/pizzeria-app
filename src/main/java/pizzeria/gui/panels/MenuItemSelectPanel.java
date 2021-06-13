@@ -1,6 +1,7 @@
 package pizzeria.gui.panels;
 
 import pizzeria.gui.components.ItemSelectorPanel;
+import pizzeria.gui.components.SectionHeader;
 import pizzeria.order_system.menu.repositories.menu_item.MenuItemRepository;
 
 import javax.swing.*;
@@ -12,13 +13,10 @@ public class MenuItemSelectPanel extends AbstractGridBagPanel {
         super(parentFrame);
         setBackground(BG_COLOR);
 
-        JLabel sectionTitle = new JLabel(title);
-        sectionTitle.setFont(HEADER_FONT);
-        sectionTitle.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.GRAY));
         gbc.gridx = 0;
         gbc.gridy = 0;
-        gbc.insets = new Insets(10, 0, 20, 0);
-        add(sectionTitle, gbc);
+        gbc.insets = new Insets(0, 0, 30, 0);
+        add(new SectionHeader(title), gbc);
 
         JScrollPane scrollPane = new JScrollPane(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPane.getVerticalScrollBar().setUnitIncrement(10);

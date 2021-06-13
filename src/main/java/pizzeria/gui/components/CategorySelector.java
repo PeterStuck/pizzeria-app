@@ -1,4 +1,4 @@
-package pizzeria.gui;
+package pizzeria.gui.components;
 
 import pizzeria.gui.panels.AbstractGridBagPanel;
 

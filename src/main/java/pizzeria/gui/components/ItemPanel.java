@@ -17,6 +17,7 @@ public class ItemPanel extends AbstractGridBagPanel {
         setPreferredSize(panelDim);
         setMinimumSize(panelDim);
         setMaximumSize(panelDim);
+        setBackground(ACCENT_COLOR);
 
         var imageLab = new JLabel(new ImageIcon(imagePath));
         gbc.gridx = 0;
