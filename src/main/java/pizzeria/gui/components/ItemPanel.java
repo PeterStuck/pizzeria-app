@@ -5,9 +5,9 @@ import pizzeria.gui.panels.AbstractGridBagPanel;
 import javax.swing.*;
 import java.awt.*;
 
-import static pizzeria.gui.PizzeriaColors.ACCENT_COLOR;
-import static pizzeria.gui.PizzeriaTypografy.BOLD_PARAGRAPH_FONT;
-import static pizzeria.gui.PizzeriaTypografy.PLAIN_PARAGRAPH_FONT;
+import static pizzeria.gui.settings.PizzeriaColors.ACCENT_COLOR;
+import static pizzeria.gui.settings.PizzeriaTypography.BOLD_PARAGRAPH_FONT;
+import static pizzeria.gui.settings.PizzeriaTypography.PLAIN_PARAGRAPH_FONT;
 
 public class ItemPanel extends AbstractGridBagPanel {
 

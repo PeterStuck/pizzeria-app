@@ -1,4 +1,4 @@
-package pizzeria.gui;
+package pizzeria.gui.settings;
 
 import java.awt.*;
 

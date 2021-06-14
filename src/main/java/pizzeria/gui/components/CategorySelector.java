@@ -5,9 +5,9 @@ import pizzeria.gui.panels.AbstractGridBagPanel;
 import javax.swing.*;
 import java.awt.*;
 
-import static pizzeria.gui.PizzeriaColors.ACCENT_COLOR;
-import static pizzeria.gui.PizzeriaColors.BTN_COLOR;
-import static pizzeria.gui.PizzeriaTypografy.H2_FONT;
+import static pizzeria.gui.settings.PizzeriaColors.ACCENT_COLOR;
+import static pizzeria.gui.settings.PizzeriaColors.BTN_COLOR;
+import static pizzeria.gui.settings.PizzeriaTypography.H2_FONT;
 
 public class CategorySelector extends AbstractGridBagPanel {
 

@@ -1,8 +1,8 @@
-package pizzeria.gui;
+package pizzeria.gui.settings;
 
 import java.awt.*;
 
-public class PizzeriaTypografy {
+public class PizzeriaTypography {
 
     public static final Font H2_FONT = new Font(Font.SANS_SERIF, Font.BOLD, 30);
     public static final Font H1_FONT = new Font(Font.SANS_SERIF, Font.BOLD, 40);

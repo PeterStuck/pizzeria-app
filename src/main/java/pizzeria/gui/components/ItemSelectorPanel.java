@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
-import static pizzeria.gui.PizzeriaColors.BTN_COLOR;
+import static pizzeria.gui.settings.PizzeriaColors.BTN_COLOR;
 
 public class ItemSelectorPanel extends AbstractGridBagPanel {
 
@@ -33,20 +33,24 @@ public class ItemSelectorPanel extends AbstractGridBagPanel {
         final int MAX_TILES_IN_ROW = 3;
 
         for (int i = 0, y = 0, k = 0; i < items.size(); i++) {
-            if (k == MAX_TILES_IN_ROW) {
-                k = 0;
-                y++;
-            }
-
             switch (k) {
-                case 0 -> gbc.insets = new Insets(TOP_BOTTOM_MARGIN, OUTER_MARGIN, TOP_BOTTOM_MARGIN, INNER_MARGIN);
-                case (MAX_TILES_IN_ROW - 1) -> gbc.insets = new Insets(TOP_BOTTOM_MARGIN, INNER_MARGIN, TOP_BOTTOM_MARGIN, OUTER_MARGIN);
-                default -> gbc.insets = new Insets(TOP_BOTTOM_MARGIN, INNER_MARGIN, TOP_BOTTOM_MARGIN, INNER_MARGIN);
+                case MAX_TILES_IN_ROW:
+                    k = 0;
+                    y++;
+                case 0:
+                    gbc.insets = new Insets(TOP_BOTTOM_MARGIN, OUTER_MARGIN, TOP_BOTTOM_MARGIN, INNER_MARGIN);
+                    break;
+                case (MAX_TILES_IN_ROW - 1):
+                    gbc.insets = new Insets(TOP_BOTTOM_MARGIN, INNER_MARGIN, TOP_BOTTOM_MARGIN, OUTER_MARGIN);
+                    break;
+                default:
+                    gbc.insets = new Insets(TOP_BOTTOM_MARGIN, INNER_MARGIN, TOP_BOTTOM_MARGIN, INNER_MARGIN);
             }
 
             gbc.gridx = k;
             gbc.gridy = y;
-            add(new ItemPanel(parentFrame, items.get(i).getName(), String.valueOf(items.get(i).getPrice()), "src\\main\\java\\assets\\placeholder.png"), gbc);
+            MenuItem item = items.get(i);
+            add(new ItemPanel(parentFrame, item.getName(), String.valueOf(item.getPrice()), "src\\main\\java\\assets\\placeholder.png"), gbc);
             k++;
         }
     }

@@ -2,10 +2,8 @@ package pizzeria.gui.panels;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-import static pizzeria.gui.PizzeriaColors.BG_COLOR;
+import static pizzeria.gui.settings.PizzeriaColors.BG_COLOR;
 
 public class StartPanel extends AbstractGridBagPanel {
 
