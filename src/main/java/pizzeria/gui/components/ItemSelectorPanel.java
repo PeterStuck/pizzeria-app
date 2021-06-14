@@ -7,6 +7,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
+import static pizzeria.gui.PizzeriaColors.BTN_COLOR;
+
 public class ItemSelectorPanel extends AbstractGridBagPanel {
 
     public ItemSelectorPanel(JFrame parentFrame, List<MenuItem> items) {

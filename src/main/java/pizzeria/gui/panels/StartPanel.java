@@ -5,6 +5,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import static pizzeria.gui.PizzeriaColors.BG_COLOR;
+
 public class StartPanel extends AbstractGridBagPanel {
 
     public StartPanel(JFrame parentFrame) {
@@ -21,16 +23,13 @@ public class StartPanel extends AbstractGridBagPanel {
         add(label, gbc);
 
         JButton startBtn = new JButton("Rozpocznij");
-        startBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (e.getSource() == startBtn) {
-                    parentFrame.remove(StartPanel.this);
-                    parentFrame.add(new CategorySelectPanel(parentFrame));
+        startBtn.addActionListener(e -> {
+            if (e.getSource() == startBtn) {
+                parentFrame.remove(StartPanel.this);
+                parentFrame.add(new CategorySelectPanel(parentFrame));
 
-                    parentFrame.revalidate();
-                    parentFrame.repaint();
-                }
+                parentFrame.revalidate();
+                parentFrame.repaint();
             }
         });
         gbc.gridy = 1;

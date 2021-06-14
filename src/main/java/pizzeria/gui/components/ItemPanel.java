@@ -5,10 +5,11 @@ import pizzeria.gui.panels.AbstractGridBagPanel;
 import javax.swing.*;
 import java.awt.*;
 
-public class ItemPanel extends AbstractGridBagPanel {
+import static pizzeria.gui.PizzeriaColors.ACCENT_COLOR;
+import static pizzeria.gui.PizzeriaTypografy.BOLD_PARAGRAPH_FONT;
+import static pizzeria.gui.PizzeriaTypografy.PLAIN_PARAGRAPH_FONT;
 
-    private Font itemPriceFont = new Font(Font.SANS_SERIF, Font.PLAIN, 12);
-    private Font itemNameFont = new Font(Font.SANS_SERIF, Font.BOLD, 12);
+public class ItemPanel extends AbstractGridBagPanel {
 
     public ItemPanel(JFrame parentFrame, String name, String price, String imagePath) {
         super(parentFrame);
@@ -26,7 +27,7 @@ public class ItemPanel extends AbstractGridBagPanel {
         add(imageLab, gbc);
 
         var itemNameLab = new JLabel(name);
-        itemNameLab.setFont(itemNameFont);
+        itemNameLab.setFont(BOLD_PARAGRAPH_FONT);
         gbc.gridx = 0;
         gbc.gridy = 1;
         gbc.gridwidth = 1;
@@ -34,7 +35,7 @@ public class ItemPanel extends AbstractGridBagPanel {
         add(itemNameLab, gbc);
 
         var itemPriceLab = new JLabel(price);
-        itemPriceLab.setFont(itemPriceFont);
+        itemPriceLab.setFont(PLAIN_PARAGRAPH_FONT);
         gbc.gridx = 1;
         gbc.gridy = 1;
         gbc.insets = new Insets(20, 0, 0, 0);

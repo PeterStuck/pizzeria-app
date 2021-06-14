@@ -5,6 +5,10 @@ import pizzeria.gui.panels.AbstractGridBagPanel;
 import javax.swing.*;
 import java.awt.*;
 
+import static pizzeria.gui.PizzeriaColors.ACCENT_COLOR;
+import static pizzeria.gui.PizzeriaColors.BTN_COLOR;
+import static pizzeria.gui.PizzeriaTypografy.H2_FONT;
+
 public class CategorySelector extends AbstractGridBagPanel {
 
     public CategorySelector(JFrame parentFrame, String desc, String path) {
@@ -25,7 +29,7 @@ public class CategorySelector extends AbstractGridBagPanel {
         this.add(icon, gbc);
 
         JLabel description = new JLabel(desc);
-        description.setFont(CATEGORY_FONT);
+        description.setFont(H2_FONT);
         gbc.gridy = 1;
         gbc.insets = new Insets(25, 0, 0, 0);
         this.add(description, gbc);

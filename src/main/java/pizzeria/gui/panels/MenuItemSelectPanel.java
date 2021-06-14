@@ -7,6 +7,8 @@ import pizzeria.order_system.menu.repositories.menu_item.MenuItemRepository;
 import javax.swing.*;
 import java.awt.*;
 
+import static pizzeria.gui.PizzeriaColors.BG_COLOR;
+
 public class MenuItemSelectPanel extends AbstractGridBagPanel {
 
     public MenuItemSelectPanel(JFrame parentFrame, MenuItemRepository repository, String title) {

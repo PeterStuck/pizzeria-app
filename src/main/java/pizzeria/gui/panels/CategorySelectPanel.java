@@ -11,6 +11,8 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import static pizzeria.gui.PizzeriaColors.BG_COLOR;
+
 public class CategorySelectPanel extends AbstractGridBagPanel {
 
     public CategorySelectPanel(JFrame parentFrame) {
