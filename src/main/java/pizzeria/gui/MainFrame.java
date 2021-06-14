@@ -19,7 +19,7 @@ public class MainFrame extends JFrame implements Runnable {
 
         gbc.gridy = 0;
         gbc.gridx = 0;
-        add(new MenuItemSelectPanel(this, new PizzaRepository(), "Pizza"), gbc);
+        add(new StartPanel(this), gbc);
 
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);

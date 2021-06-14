@@ -11,8 +11,13 @@ import static pizzeria.gui.settings.PizzeriaColors.BTN_COLOR;
 
 public class ItemSelectorPanel extends AbstractGridBagPanel {
 
-    public ItemSelectorPanel(JFrame parentFrame, List<MenuItem> items) {
+    private final List<MenuItem> items;
+    private final String placeholderImagePath;
+
+    public ItemSelectorPanel(JFrame parentFrame, List<MenuItem> items, String placeholderImagePath) {
         super(parentFrame);
+        this.items = items;
+        this.placeholderImagePath = placeholderImagePath;
 
         var panelDim = new Dimension(700, (int) (Math.ceil((double)items.size() / 3) * 170) + 50);
         setPreferredSize(panelDim);
@@ -20,13 +25,13 @@ public class ItemSelectorPanel extends AbstractGridBagPanel {
 
         setBackground(BTN_COLOR);
 
-        arrangeTiles(parentFrame, items);
+        arrangeTiles();
 
         revalidate();
         repaint();
     }
 
-    private void arrangeTiles(JFrame parentFrame, List<MenuItem> items) {
+    private void arrangeTiles() {
         final int OUTER_MARGIN = 75;
         final int INNER_MARGIN = 25;
         final int TOP_BOTTOM_MARGIN = 10;
@@ -50,7 +55,7 @@ public class ItemSelectorPanel extends AbstractGridBagPanel {
             gbc.gridx = k;
             gbc.gridy = y;
             MenuItem item = items.get(i);
-            add(new ItemPanel(parentFrame, item.getName(), String.valueOf(item.getPrice()), "src\\main\\java\\assets\\placeholder.png"), gbc);
+            add(new ItemPanel(parentFrame, item.getName(), String.valueOf(item.getPrice()), placeholderImagePath), gbc);
             k++;
         }
     }

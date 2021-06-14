@@ -3,6 +3,7 @@ package pizzeria.gui.panels;
 import javax.swing.*;
 import java.awt.*;
 
+import static pizzeria.gui.settings.ImagePaths.PIZZERIA_LOGO_IMG;
 import static pizzeria.gui.settings.PizzeriaColors.BG_COLOR;
 
 public class StartPanel extends AbstractGridBagPanel {
@@ -12,7 +13,7 @@ public class StartPanel extends AbstractGridBagPanel {
 
         setBackground(BG_COLOR);
         JLabel label = new JLabel();
-        label.setIcon(new ImageIcon("src\\main\\java\\assets\\logo.png"));
+        label.setIcon(new ImageIcon(PIZZERIA_LOGO_IMG));
         label.setFont(new Font(Font.SERIF, Font.BOLD, 30));
         gbc.gridx = 0;
         gbc.gridy = 0;

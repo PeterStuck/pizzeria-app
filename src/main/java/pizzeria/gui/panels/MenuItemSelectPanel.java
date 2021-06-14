@@ -11,7 +11,7 @@ import static pizzeria.gui.settings.PizzeriaColors.BG_COLOR;
 
 public class MenuItemSelectPanel extends AbstractGridBagPanel {
 
-    public MenuItemSelectPanel(JFrame parentFrame, MenuItemRepository repository, String title) {
+    public MenuItemSelectPanel(JFrame parentFrame, MenuItemRepository repository, String title, String placeholderPath) {
         super(parentFrame);
         setBackground(BG_COLOR);
 
@@ -23,7 +23,7 @@ public class MenuItemSelectPanel extends AbstractGridBagPanel {
 
         JScrollPane scrollPane = new JScrollPane(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPane.getVerticalScrollBar().setUnitIncrement(10);
-        scrollPane.setViewportView(new ItemSelectorPanel(parentFrame, repository.findAll()));
+        scrollPane.setViewportView(new ItemSelectorPanel(parentFrame, repository.findAll(), placeholderPath));
         scrollPane.setBorder(null);
         gbc.gridx = 0;
         gbc.gridy = 1;
