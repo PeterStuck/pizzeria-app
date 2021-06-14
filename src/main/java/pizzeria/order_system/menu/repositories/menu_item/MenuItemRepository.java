@@ -29,4 +29,15 @@ public abstract class MenuItemRepository {
         }
         throw new MenuItemNotFoundException("Item with id: " + id + " not found.");
     }
+
+    public final MenuItem findByName(String name) throws MenuItemNotFoundException {
+        Optional<MenuItem> optionalMenuItem = this.menuItems.stream()
+                .filter(menuItem -> menuItem.getName().equals(name))
+                .findFirst();
+
+        if (optionalMenuItem.isPresent()) {
+            return optionalMenuItem.get();
+        }
+        throw new MenuItemNotFoundException("Item with name: " + name + " not found.");
+    }
 }

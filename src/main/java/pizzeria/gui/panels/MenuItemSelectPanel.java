@@ -23,7 +23,7 @@ public class MenuItemSelectPanel extends AbstractGridBagPanel {
 
         JScrollPane scrollPane = new JScrollPane(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPane.getVerticalScrollBar().setUnitIncrement(10);
-        scrollPane.setViewportView(new ItemSelectorPanel(parentFrame, repository.findAll(), placeholderPath));
+        scrollPane.setViewportView(new ItemSelectorPanel(parentFrame, repository, placeholderPath));
         scrollPane.setBorder(null);
         gbc.gridx = 0;
         gbc.gridy = 1;

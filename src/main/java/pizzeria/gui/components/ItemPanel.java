@@ -11,6 +11,8 @@ import static pizzeria.gui.settings.PizzeriaTypography.PLAIN_PARAGRAPH_FONT;
 
 public class ItemPanel extends AbstractGridBagPanel {
 
+    private JLabel itemNameLab;
+
     public ItemPanel(JFrame parentFrame, String name, String price, String imagePath) {
         super(parentFrame);
 
@@ -26,7 +28,7 @@ public class ItemPanel extends AbstractGridBagPanel {
         gbc.gridwidth = 2;
         add(imageLab, gbc);
 
-        var itemNameLab = new JLabel(name);
+        itemNameLab = new JLabel(name);
         itemNameLab.setFont(BOLD_PARAGRAPH_FONT);
         gbc.gridx = 0;
         gbc.gridy = 1;
@@ -44,4 +46,9 @@ public class ItemPanel extends AbstractGridBagPanel {
         revalidate();
         repaint();
     }
+
+    public String getClickedPizzaName() {
+        return this.itemNameLab.getText();
+    }
+
 }

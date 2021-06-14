@@ -1,25 +1,31 @@
 package pizzeria.gui.components;
 
 import pizzeria.gui.panels.AbstractGridBagPanel;
+import pizzeria.gui.panels.AddItemPanel;
+import pizzeria.gui.panels.MenuItemSelectPanel;
+import pizzeria.order_system.menu.exceptions.MenuItemNotFoundException;
 import pizzeria.order_system.menu.models.MenuItem;
+import pizzeria.order_system.menu.repositories.menu_item.MenuItemRepository;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.List;
 
 import static pizzeria.gui.settings.PizzeriaColors.BTN_COLOR;
 
 public class ItemSelectorPanel extends AbstractGridBagPanel {
 
-    private final List<MenuItem> items;
+    private final MenuItemRepository repository;
     private final String placeholderImagePath;
 
-    public ItemSelectorPanel(JFrame parentFrame, List<MenuItem> items, String placeholderImagePath) {
+    public ItemSelectorPanel(JFrame parentFrame, MenuItemRepository repository, String placeholderImagePath) {
         super(parentFrame);
-        this.items = items;
+        this.repository = repository;
         this.placeholderImagePath = placeholderImagePath;
 
-        var panelDim = new Dimension(700, (int) (Math.ceil((double)items.size() / 3) * 170) + 50);
+        var panelDim = new Dimension(700, (int) (Math.ceil((double)repository.findAll().size() / 3) * 170) + 50);
         setPreferredSize(panelDim);
         setMinimumSize(panelDim);
 
@@ -37,6 +43,7 @@ public class ItemSelectorPanel extends AbstractGridBagPanel {
         final int TOP_BOTTOM_MARGIN = 10;
         final int MAX_TILES_IN_ROW = 3;
 
+        List<MenuItem> items = repository.findAll();
         for (int i = 0, y = 0, k = 0; i < items.size(); i++) {
             switch (k) {
                 case MAX_TILES_IN_ROW:
@@ -55,7 +62,28 @@ public class ItemSelectorPanel extends AbstractGridBagPanel {
             gbc.gridx = k;
             gbc.gridy = y;
             MenuItem item = items.get(i);
-            add(new ItemPanel(parentFrame, item.getName(), String.valueOf(item.getPrice()), placeholderImagePath), gbc);
+            var itemPanel = new ItemPanel(parentFrame, item.getName(), String.valueOf(item.getPrice()), placeholderImagePath);
+            itemPanel.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    try {
+                        JPanel previousMenuSelectPanel = (JPanel) ItemSelectorPanel.this.getParent().getParent().getParent();
+                        parentFrame.getContentPane().removeAll();
+
+                        String clickedPizzaName = ((ItemPanel) e.getSource()).getClickedPizzaName();
+                        MenuItem menuItem = repository.findByName(clickedPizzaName);
+                        parentFrame.add(new AddItemPanel(parentFrame, previousMenuSelectPanel, menuItem));
+
+                        revalidate();
+                        repaint();
+                        parentFrame.revalidate();
+                        parentFrame.repaint();
+                    } catch (MenuItemNotFoundException menuItemNotFoundException) {
+                        JOptionPane.showMessageDialog(null, "Nie znaleziono pozycji w bazie!", "Oops. Coś poszło nie tak.", JOptionPane.WARNING_MESSAGE);
+                    }
+                }
+            });
+            add(itemPanel, gbc);
             k++;
         }
     }

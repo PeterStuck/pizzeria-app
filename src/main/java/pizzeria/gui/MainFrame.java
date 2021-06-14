@@ -1,8 +1,6 @@
 package pizzeria.gui;
 
-import pizzeria.gui.panels.MenuItemSelectPanel;
 import pizzeria.gui.panels.StartPanel;
-import pizzeria.order_system.menu.repositories.menu_item.PizzaRepository;
 
 import javax.swing.*;
 import java.awt.*;

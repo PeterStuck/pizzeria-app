@@ -41,7 +41,7 @@ public class Navbar extends AbstractGridBagPanel {
         add(backButton, gbc);
 
         var sectionHeader = new SectionHeader(sectionTitle);
-        sectionHeader.setMinimumSize(new Dimension(250, 50));
+        sectionHeader.setMinimumSize(new Dimension(350, 50));
         gbc.gridx = 1;
         gbc.weightx = 10;
         gbc.insets = new Insets(0, 100, 0, 0);
