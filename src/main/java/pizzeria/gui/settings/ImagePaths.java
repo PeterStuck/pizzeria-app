@@ -14,5 +14,7 @@ public class ImagePaths {
     public static final String DRINK_PLACEHOLDER_IMG = "src\\main\\java\\assets\\drink_placeholder.png";
 
     public static final String CONFIRM_MARK_IMG = "src\\main\\java\\assets\\check-mark.png";
+    public static final String PLUS_MARK_IMG = "src\\main\\java\\assets\\plus.png";
+    public static final String MINUS_MARK_IMG = "src\\main\\java\\assets\\minus.png";
 
 }
