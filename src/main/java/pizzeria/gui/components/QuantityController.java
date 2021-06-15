@@ -33,10 +33,13 @@ public class QuantityController extends AbstractGridBagPanel {
         decreaseBtn.setFont(H2_FONT);
         decreaseBtn.setMinimumSize(btnDim);
         decreaseBtn.setFocusPainted(false);
+        decreaseBtn.setEnabled(false);
         decreaseBtn.addActionListener(e -> {
             if (quantityCount > 1) {
                 quantityCount--;
                 quantityLab.setText(String.valueOf(quantityCount));
+            } else {
+                decreaseBtn.setEnabled(false);
             }
         });
         gbc.gridx = 0;
@@ -57,6 +60,7 @@ public class QuantityController extends AbstractGridBagPanel {
         increaseBtn.setFont(H2_FONT);
         increaseBtn.setFocusPainted(false);
         increaseBtn.addActionListener(e -> {
+            decreaseBtn.setEnabled(true);
             quantityCount++;
             quantityLab.setText(String.valueOf(quantityCount));
         });

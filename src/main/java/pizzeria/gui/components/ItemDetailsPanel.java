@@ -14,8 +14,8 @@ import static pizzeria.gui.settings.PizzeriaTypography.H2_FONT;
 public class ItemDetailsPanel extends AbstractGridBagPanel implements Observer {
 
     private MenuItem menuItem;
-    private QuantityController quantityController;
-    private JLabel priceLab;
+    private final QuantityController quantityController;
+    private final JLabel priceLab;
 
     public ItemDetailsPanel(JFrame parentFrame, MenuItem menuItem) {
         super(parentFrame);
