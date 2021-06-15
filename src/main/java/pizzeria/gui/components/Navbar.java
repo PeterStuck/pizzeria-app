@@ -5,8 +5,9 @@ import pizzeria.gui.panels.AbstractGridBagPanel;
 import javax.swing.*;
 import java.awt.*;
 
-import static pizzeria.gui.settings.PizzeriaColors.BG_COLOR;
-import static pizzeria.gui.settings.PizzeriaColors.BTN_COLOR;
+import static pizzeria.gui.settings.ImagePaths.GO_BACK_IMG;
+import static pizzeria.gui.settings.PizzeriaColors.*;
+import static pizzeria.gui.settings.PizzeriaTypography.*;
 
 public class Navbar extends AbstractGridBagPanel {
 
@@ -18,7 +19,7 @@ public class Navbar extends AbstractGridBagPanel {
 
         setMinimumSize(new Dimension(1000, 50));
 
-        JButton backButton = new JButton(new ImageIcon("src\\main\\java\\assets\\go_back.png"));
+        JButton backButton = new JButton(new ImageIcon(GO_BACK_IMG));
         backButton.setBackground(BTN_COLOR);
         backButton.setBorder(null);
         backButton.setFocusPainted(false);
@@ -47,8 +48,12 @@ public class Navbar extends AbstractGridBagPanel {
         gbc.insets = new Insets(0, 100, 0, 0);
         add(sectionHeader, gbc);
 
-        submitBtn = new JButton("PODSUMOWANIE");
+        submitBtn = new JButton("Podsumowanie");
         submitBtn.setMinimumSize(new Dimension(150, 50));
+        submitBtn.setBackground(CONFIRM_COLOR);
+        submitBtn.setFont(H5_FONT);
+        submitBtn.setFocusPainted(false);
+        submitBtn.setBorder(BorderFactory.createMatteBorder(0, 0, 3, 0, Color.black));
         gbc.gridx = 2;
         gbc.weightx = 0;
         gbc.ipadx = 0;
