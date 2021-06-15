@@ -13,4 +13,6 @@ public class ImagePaths {
     public static final String PIZZA_PLACEHOLDER_IMG = "src\\main\\java\\assets\\pizza_placeholder.png";
     public static final String DRINK_PLACEHOLDER_IMG = "src\\main\\java\\assets\\drink_placeholder.png";
 
+    public static final String CONFIRM_MARK_IMG = "src\\main\\java\\assets\\check-mark.png";
+
 }
