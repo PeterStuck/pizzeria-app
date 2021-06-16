@@ -1,12 +1,17 @@
 package pizzeria.gui.components;
 
+import pizzeria.gui.MainFrame;
 import pizzeria.gui.panels.AbstractGridBagPanel;
 import pizzeria.gui.panels.Observer;
 import pizzeria.order_system.menu.models.MenuItem;
 import pizzeria.order_system.menu.models.Pizza;
+import pizzeria.order_system.order.models.Order;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Arrays;
 
 import static pizzeria.gui.settings.ImagePaths.CONFIRM_MARK_IMG;
 import static pizzeria.gui.settings.PizzeriaColors.*;
@@ -69,6 +74,11 @@ public class ItemDetailsPanel extends AbstractGridBagPanel implements Observer {
         confirmBtn.setFocusPainted(false);
         confirmBtn.setBorder(null);
         confirmBtn.setMinimumSize(labDim);
+        confirmBtn.addActionListener(e -> {
+            int quantity = quantityController.getQuantityCount();
+            this.addItemToOrderWithQuantity(this.menuItem, quantity);
+            JOptionPane.showMessageDialog(null, "Dodano do zamówienia!", "Informacja", JOptionPane.INFORMATION_MESSAGE);
+        });
         gbc.gridy = nextGridY++;
         gbc.insets = new Insets(20, 30, 0, 0);
         add(confirmBtn, gbc);
@@ -78,5 +88,12 @@ public class ItemDetailsPanel extends AbstractGridBagPanel implements Observer {
     public void update() {
         int quantity = quantityController.getQuantityCount();
         priceLab.setText(String.format("%.2f", menuItem.getPrice() * quantity));
+    }
+
+    private void addItemToOrderWithQuantity(MenuItem item, int quantity) {
+        Order order = ((MainFrame) parentFrame).getOrder();
+        for (int i = 0; i < quantity; i++) {
+            order.addItemToOrder(item);
+        }
     }
 }
