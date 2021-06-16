@@ -10,11 +10,13 @@ public class SubmitPanel extends AbstractPanelWithNavbar {
     public SubmitPanel(JFrame parentFrame, JPanel previousPanel) {
         super(parentFrame, previousPanel, "Podsumowanie");
 
+        var cp = new ConfirmPanel(parentFrame, new OrderSubmitPanel(parentFrame));
+        cp.setConfirmActionListener((e) -> {
+            System.out.println("SUBMIT CONFIRMED!");
+        });
         gbc.gridx = 0;
         gbc.gridy = 1;
-        add(new ConfirmPanel(parentFrame, new OrderSubmitPanel(parentFrame), (e) -> {
-            System.out.println("SUBMIT CONFIRMED!");
-        }), gbc);
+        add(cp, gbc);
 
     }
 

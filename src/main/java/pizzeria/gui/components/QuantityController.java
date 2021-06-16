@@ -92,7 +92,7 @@ public class QuantityController extends AbstractGridBagPanel {
 
         public MouseClickObserver() {
             registeredObservers = new ArrayList<>();
-            this.addObserver((Observer) QuantityController.this.getParent());
+            this.addObserver((Observer) QuantityController.this.getParent().getParent());
         }
 
         public void addObserver(Observer observer) {
