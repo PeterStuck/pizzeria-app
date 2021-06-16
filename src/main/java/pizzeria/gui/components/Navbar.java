@@ -1,9 +1,12 @@
 package pizzeria.gui.components;
 
 import pizzeria.gui.panels.AbstractGridBagPanel;
+import pizzeria.gui.panels.SubmitPanel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import static pizzeria.gui.settings.ImagePaths.GO_BACK_IMG;
 import static pizzeria.gui.settings.PizzeriaColors.*;
@@ -54,6 +57,17 @@ public class Navbar extends AbstractGridBagPanel {
         submitBtn.setFont(H5_FONT);
         submitBtn.setFocusPainted(false);
         submitBtn.setBorder(BorderFactory.createMatteBorder(0, 0, 3, 0, Color.black));
+        submitBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                var parent = Navbar.this.getParent();
+                parentFrame.remove(parent);
+                parentFrame.add(new SubmitPanel(parentFrame, (JPanel) parent));
+
+                parentFrame.revalidate();
+                parentFrame.repaint();
+            }
+        });
         gbc.gridx = 2;
         gbc.weightx = 0;
         gbc.ipadx = 0;

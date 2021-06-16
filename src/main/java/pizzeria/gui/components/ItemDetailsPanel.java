@@ -9,9 +9,6 @@ import pizzeria.order_system.order.models.Order;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.Arrays;
 
 import static pizzeria.gui.settings.ImagePaths.CONFIRM_MARK_IMG;
 import static pizzeria.gui.settings.PizzeriaColors.*;
@@ -50,7 +47,6 @@ public class ItemDetailsPanel extends AbstractGridBagPanel implements Observer {
             nextGridY++;
         }
 
-
         priceLab = new JLabel(String.valueOf(menuItem.getPrice()));
         priceLab.setFont(H2_FONT);
         priceLab.setOpaque(true);
@@ -75,8 +71,7 @@ public class ItemDetailsPanel extends AbstractGridBagPanel implements Observer {
         confirmBtn.setBorder(null);
         confirmBtn.setMinimumSize(labDim);
         confirmBtn.addActionListener(e -> {
-            int quantity = quantityController.getQuantityCount();
-            this.addItemToOrderWithQuantity(this.menuItem, quantity);
+            this.addItemToOrderWithQuantity(this.menuItem, quantityController.getQuantityCount());
             JOptionPane.showMessageDialog(null, "Dodano do zamówienia!", "Informacja", JOptionPane.INFORMATION_MESSAGE);
         });
         gbc.gridy = nextGridY++;
