@@ -9,6 +9,9 @@ import pizzeria.order_system.order.models.Order;
 import javax.swing.*;
 import java.awt.*;
 
+import static pizzeria.gui.settings.ComponentProperties.ACCENT_LINE_BORDER;
+import static pizzeria.gui.settings.PizzeriaColors.BTN_COLOR;
+
 public class SubmitPanel extends AbstractPanelWithNavbar {
 
     private FileOrderLogWriter orderLogWriter;
@@ -21,6 +24,7 @@ public class SubmitPanel extends AbstractPanelWithNavbar {
         var submitScrollPane = new JScrollPane(new OrderSubmitPanel(parentFrame), JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         submitScrollPane.setPreferredSize(new Dimension(460, 200));
         submitScrollPane.setMinimumSize(new Dimension(460, 200));
+        submitScrollPane.setBorder(null);
         var cp = new ConfirmPanel(parentFrame, submitScrollPane);
         cp.setConfirmActionListener((e) -> {
             Order order = ((MainFrame) parentFrame).getOrder();

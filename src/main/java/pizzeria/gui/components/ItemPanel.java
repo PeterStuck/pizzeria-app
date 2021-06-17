@@ -3,7 +3,9 @@ package pizzeria.gui.components;
 import javax.swing.*;
 import java.awt.*;
 
+import static pizzeria.gui.settings.ComponentProperties.ACCENT_LINE_BORDER;
 import static pizzeria.gui.settings.PizzeriaColors.ACCENT_COLOR;
+import static pizzeria.gui.settings.PizzeriaColors.BTN_COLOR;
 import static pizzeria.gui.settings.PizzeriaTypography.BOLD_PARAGRAPH_FONT;
 import static pizzeria.gui.settings.PizzeriaTypography.PLAIN_PARAGRAPH_FONT;
 
@@ -18,7 +20,9 @@ public class ItemPanel extends AbstractGridBagPanel {
         setPreferredSize(panelDim);
         setMinimumSize(panelDim);
         setMaximumSize(panelDim);
-        setBackground(ACCENT_COLOR);
+        setBackground(BTN_COLOR);
+        setBorder(ACCENT_LINE_BORDER);
+
 
         var imageLab = new JLabel(new ImageIcon(imagePath));
         gbc.gridx = 0;

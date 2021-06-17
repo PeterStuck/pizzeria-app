@@ -18,5 +18,6 @@ public class ImagePaths {
     public static final String PLUS_MARK_IMG = "src\\main\\java\\assets\\plus.png";
     public static final String MINUS_MARK_IMG = "src\\main\\java\\assets\\minus.png";
     public static final String GO_BACK_IMG = "src\\main\\java\\assets\\go_back.png";
+    public static final String BILL_IMG = "src\\main\\java\\assets\\bill.png";
 
 }

@@ -7,6 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import static pizzeria.gui.settings.ImagePaths.BILL_IMG;
 import static pizzeria.gui.settings.ImagePaths.GO_BACK_IMG;
 import static pizzeria.gui.settings.PizzeriaColors.*;
 import static pizzeria.gui.settings.PizzeriaTypography.*;
@@ -25,7 +26,7 @@ public class Navbar extends AbstractGridBagPanel {
 
         backButton = new JButton(new ImageIcon(GO_BACK_IMG));
         backButton.setBackground(BTN_COLOR);
-        backButton.setBorder(null);
+        backButton.setBorder(BorderFactory.createLineBorder(ACCENT_COLOR,1,true));
         backButton.setFocusPainted(false);
         backButton.setMinimumSize(new Dimension(50, 50));
         backButton.addActionListener(e -> {
@@ -52,12 +53,11 @@ public class Navbar extends AbstractGridBagPanel {
         gbc.insets = new Insets(0, 100, 0, 0);
         add(sectionHeader, gbc);
 
-        submitBtn = new JButton("Podsumowanie");
+        submitBtn = new JButton(new ImageIcon(BILL_IMG));
         submitBtn.setMinimumSize(new Dimension(150, 50));
         submitBtn.setBackground(CONFIRM_COLOR);
-        submitBtn.setFont(H5_FONT);
+        submitBtn.setBorder(BorderFactory.createLineBorder(GREEN_ACCENT_COLOR, 1, true));
         submitBtn.setFocusPainted(false);
-        submitBtn.setBorder(BorderFactory.createMatteBorder(0, 0, 3, 0, Color.black));
         submitBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

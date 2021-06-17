@@ -4,9 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
+import static pizzeria.gui.settings.ComponentProperties.ACCENT_LINE_BORDER;
 import static pizzeria.gui.settings.ImagePaths.CONFIRM_MARK_IMG;
-import static pizzeria.gui.settings.PizzeriaColors.ACCENT_COLOR;
-import static pizzeria.gui.settings.PizzeriaColors.CONFIRM_COLOR;
+import static pizzeria.gui.settings.PizzeriaColors.*;
 
 public class ConfirmPanel extends AbstractGridBagPanel {
 
@@ -22,7 +22,8 @@ public class ConfirmPanel extends AbstractGridBagPanel {
         labDim = new Dimension(200, 50);
 
         setMinimumSize(panelDim);
-        setBackground(ACCENT_COLOR);
+        setBackground(BTN_COLOR);
+        setBorder(ACCENT_LINE_BORDER);
 
         gbc.gridx = 0;
         gbc.gridy = 0;
@@ -31,7 +32,7 @@ public class ConfirmPanel extends AbstractGridBagPanel {
         confirmBtn = new JButton(new ImageIcon(CONFIRM_MARK_IMG));
         confirmBtn.setBackground(CONFIRM_COLOR);
         confirmBtn.setFocusPainted(false);
-        confirmBtn.setBorder(null);
+        confirmBtn.setBorder(BorderFactory.createLineBorder(GREEN_ACCENT_COLOR, 1, true));
         confirmBtn.setPreferredSize(labDim);
         gbc.gridy = 1;
         gbc.insets = new Insets(20, 0, 0, 0);

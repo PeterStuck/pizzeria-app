@@ -11,8 +11,8 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.util.List;
 
-import static pizzeria.gui.settings.PizzeriaColors.ACCENT_COLOR;
-import static pizzeria.gui.settings.PizzeriaColors.BG_COLOR;
+import static pizzeria.gui.settings.ComponentProperties.ACCENT_LINE_BORDER;
+import static pizzeria.gui.settings.PizzeriaColors.*;
 import static pizzeria.gui.settings.PizzeriaTypography.H4_FONT;
 import static pizzeria.gui.settings.PizzeriaTypography.H5_FONT;
 
@@ -42,7 +42,8 @@ public class OrderSubmitPanel extends AbstractGridBagPanel {
         orderItemInsets = new Insets(10, 10, 0, 0);
         rightOrderItemInsets = new Insets(10, 10, 0, 30);
 
-        setBackground(BG_COLOR);
+        setBackground(BTN_COLOR);
+
 
         Dimension panelDim = new Dimension(460, panelHeight);
         setMinimumSize(panelDim);
@@ -60,11 +61,11 @@ public class OrderSubmitPanel extends AbstractGridBagPanel {
         for (OrderItem orderItem : orderList) {
             var tmpMenuItem = orderItem.getMenuItem();
             var nameLab = this.createLabel(
-                    tmpMenuItem.getName(),
+                    " " + tmpMenuItem.getName(),
                     nameLabDim,
                     H4_FONT.deriveFont(Font.PLAIN),
                     JLabel.LEFT,
-                    emptyBorder);
+                    ACCENT_LINE_BORDER);
             gbc.gridx = 0;
             gbc.gridy = nextGridY;
             gbc.insets = orderItemInsets;
@@ -75,7 +76,7 @@ public class OrderSubmitPanel extends AbstractGridBagPanel {
                     quantityAndPriceDim,
                     H4_FONT.deriveFont(Font.PLAIN),
                     JLabel.CENTER,
-                    null);
+                    ACCENT_LINE_BORDER);
             gbc.gridx = 1;
             gbc.insets = orderItemInsets;
             add(quantityLab, gbc);
@@ -85,7 +86,7 @@ public class OrderSubmitPanel extends AbstractGridBagPanel {
                     quantityAndPriceDim,
                     H4_FONT.deriveFont(Font.PLAIN),
                     JLabel.CENTER,
-                    null);
+                    ACCENT_LINE_BORDER);
             gbc.gridx = 2;
             gbc.insets = rightOrderItemInsets;
             add(priceLab, gbc);
@@ -98,22 +99,22 @@ public class OrderSubmitPanel extends AbstractGridBagPanel {
 
     private void alignOrderTotalInSubmit(int nextGridY, Order order) {
         var totalLab = this.createLabel(
-                "Razem do zapłaty:",
+                " Razem do zapłaty:",
                 nameLabDim,
                 H4_FONT,
                 JLabel.LEFT,
-                emptyBorder);
+                BorderFactory.createMatteBorder(1, 1, 1, 0, ACCENT_COLOR));
         gbc.gridx = 0;
         gbc.gridy = nextGridY;
         gbc.insets = orderItemInsets;
         add(totalLab, gbc);
 
         var totalPriceLab = this.createLabel(
-                String.format("%.2f", OrderTotalCalculator.calculateOrderTotal(order)),
+                String.format("%.2f    ", OrderTotalCalculator.calculateOrderTotal(order)),
                 totalPriceDim,
                 H4_FONT,
                 JLabel.RIGHT,
-                BorderFactory.createEmptyBorder(0, 0, 0, 25));
+                BorderFactory.createMatteBorder(1, 0, 1, 1, ACCENT_COLOR));
         gbc.gridx = 1;
         gbc.gridwidth = 2;
         gbc.gridy = nextGridY;
@@ -124,7 +125,7 @@ public class OrderSubmitPanel extends AbstractGridBagPanel {
     private JLabel createLabel(String text, Dimension dim, Font font, int alignment, Border border) {
         var label = new JLabel(text);
         label.setOpaque(true);
-        label.setBackground(ACCENT_COLOR);
+        label.setBackground(ECRU_COLOR);
         label.setPreferredSize(dim);
         label.setFont(font);
         label.setHorizontalAlignment(alignment);

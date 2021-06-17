@@ -6,8 +6,8 @@ import pizzeria.order_system.menu.models.Pizza;
 import javax.swing.*;
 import java.awt.*;
 
-import static pizzeria.gui.settings.PizzeriaColors.ACCENT_COLOR;
-import static pizzeria.gui.settings.PizzeriaColors.BG_COLOR;
+import static pizzeria.gui.settings.ComponentProperties.ACCENT_LINE_BORDER;
+import static pizzeria.gui.settings.PizzeriaColors.*;
 import static pizzeria.gui.settings.PizzeriaTypography.H2_FONT;
 
 public class ItemDetailsPanel extends AbstractGridBagPanel {
@@ -21,7 +21,7 @@ public class ItemDetailsPanel extends AbstractGridBagPanel {
         var panelDim = new Dimension(460, 200);
         var ingredientsPanelDim = new Dimension(460, 120);
 
-        setBackground(ACCENT_COLOR);
+        setBackground(BTN_COLOR);
         setMinimumSize(panelDim);
         setPreferredSize(panelDim);
 
@@ -36,7 +36,7 @@ public class ItemDetailsPanel extends AbstractGridBagPanel {
             ingredientsScroll.setMinimumSize(ingredientsPanelDim);
             ingredientsScroll.setPreferredSize(ingredientsPanelDim);
             ingredientsScroll.getVerticalScrollBar().setUnitIncrement(10);
-            ingredientsScroll.setBorder(null);
+            ingredientsScroll.setBorder(ACCENT_LINE_BORDER);
             add(ingredientsScroll, gbc);
 
             nextGridY++;
@@ -45,7 +45,8 @@ public class ItemDetailsPanel extends AbstractGridBagPanel {
         priceLab = new JLabel(String.valueOf(menuItem.getPrice()));
         priceLab.setFont(H2_FONT);
         priceLab.setOpaque(true);
-        priceLab.setBackground(BG_COLOR);
+        priceLab.setBackground(ECRU_COLOR);
+        priceLab.setBorder(ACCENT_LINE_BORDER);
         priceLab.setHorizontalAlignment(JLabel.CENTER);
         priceLab.setMinimumSize(new Dimension(200, 50));
         gbc.gridx = 0;

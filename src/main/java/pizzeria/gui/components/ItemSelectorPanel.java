@@ -11,7 +11,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
 
-import static pizzeria.gui.settings.PizzeriaColors.BTN_COLOR;
+import static pizzeria.gui.settings.PizzeriaColors.*;
 
 public class ItemSelectorPanel extends AbstractGridBagPanel {
 
@@ -27,7 +27,7 @@ public class ItemSelectorPanel extends AbstractGridBagPanel {
         setPreferredSize(panelDim);
         setMinimumSize(panelDim);
 
-        setBackground(BTN_COLOR);
+        setBackground(BG_COLOR);
 
         arrangeTiles();
 

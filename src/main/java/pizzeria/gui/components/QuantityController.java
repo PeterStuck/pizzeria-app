@@ -10,9 +10,10 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 
+import static pizzeria.gui.settings.ComponentProperties.*;
 import static pizzeria.gui.settings.ImagePaths.MINUS_MARK_IMG;
 import static pizzeria.gui.settings.ImagePaths.PLUS_MARK_IMG;
-import static pizzeria.gui.settings.PizzeriaColors.BG_COLOR;
+import static pizzeria.gui.settings.PizzeriaColors.*;
 import static pizzeria.gui.settings.PizzeriaTypography.H2_FONT;
 
 public class QuantityController extends AbstractGridBagPanel {
@@ -29,7 +30,8 @@ public class QuantityController extends AbstractGridBagPanel {
     public QuantityController(JFrame parentFrame) {
         super(parentFrame);
         setMinimumSize(new Dimension(200, 50));
-        setBackground(BG_COLOR);
+        setBackground(ECRU_COLOR);
+        setBorder(ACCENT_LINE_BORDER);
 
         decreaseBtn = createButton(MINUS_MARK_IMG, e -> {
             if (quantityCount > 1) {
@@ -39,6 +41,8 @@ public class QuantityController extends AbstractGridBagPanel {
                 decreaseBtn.setEnabled(false);
             }
         });
+        decreaseBtn.setBackground(DECLINE_COLOR);
+        decreaseBtn.setBorder(RED_ACCENT_LINE_BORDER);
         decreaseBtn.setEnabled(false);
         gbc.gridx = 0;
         gbc.gridy = 0;
@@ -58,6 +62,8 @@ public class QuantityController extends AbstractGridBagPanel {
             quantityCount++;
             quantityLab.setText(String.valueOf(quantityCount));
         });
+        increaseBtn.setBackground(CONFIRM_COLOR);
+        increaseBtn.setBorder(GREEN_ACCENT_LINE_BORDER);
         gbc.gridx = 2;
         gbc.insets = new Insets(0, 0, 0, 0);
         add(increaseBtn, gbc);
@@ -67,7 +73,9 @@ public class QuantityController extends AbstractGridBagPanel {
     private JButton createButton(String imagePath, ActionListener listener) {
         var button = new JButton(new ImageIcon(imagePath));
         button.setMinimumSize(btnDim);
+        button.setPreferredSize(btnDim);
         button.setBackground(BG_COLOR);
+        button.setBorder(BorderFactory.createEmptyBorder());
         button.setFocusPainted(false);
         button.addActionListener(listener);
 

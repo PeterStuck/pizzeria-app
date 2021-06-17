@@ -9,6 +9,7 @@ import java.awt.*;
 import java.util.List;
 
 import static pizzeria.gui.settings.PizzeriaColors.BG_COLOR;
+import static pizzeria.gui.settings.PizzeriaColors.ECRU_COLOR;
 import static pizzeria.gui.settings.PizzeriaTypography.H3_FONT;
 import static pizzeria.gui.settings.PizzeriaTypography.H4_FONT;
 
@@ -23,7 +24,7 @@ public class IngredientsPanel extends AbstractGridBagPanel {
 
         setMinimumSize(panelDim);
         setPreferredSize(panelDim);
-        setBackground(BG_COLOR);
+        setBackground(ECRU_COLOR);
 
         Border emptyBorder = BorderFactory.createEmptyBorder(0, 20, 0, 0);
 
