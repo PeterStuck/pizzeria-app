@@ -7,7 +7,7 @@ import pizzeria.order_system.order.models.OrderItem;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class OrderConverter {
+class OrderConverter {
 
     private List<OrderItem> orderedFoodList;
 
