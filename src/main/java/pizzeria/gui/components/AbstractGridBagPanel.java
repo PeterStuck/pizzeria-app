@@ -1,4 +1,4 @@
-package pizzeria.gui.panels;
+package pizzeria.gui.components;
 
 import javax.swing.*;
 import java.awt.*;

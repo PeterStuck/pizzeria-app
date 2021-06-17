@@ -1,6 +1,5 @@
 package pizzeria.gui.components;
 
-import pizzeria.gui.panels.AbstractGridBagPanel;
 import pizzeria.order_system.menu.models.MenuItem;
 import pizzeria.order_system.menu.models.Pizza;
 

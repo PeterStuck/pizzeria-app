@@ -1,7 +1,5 @@
 package pizzeria.gui.components;
 
-import pizzeria.gui.panels.AbstractGridBagPanel;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -14,10 +12,10 @@ public class ConfirmPanel extends AbstractGridBagPanel {
 
     private final JButton confirmBtn;
 
-    protected JPanel contentPanel;
+    protected JComponent contentPanel;
     protected Dimension labDim;
 
-    public ConfirmPanel(JFrame parentFrame, JPanel contentPanel) {
+    public ConfirmPanel(JFrame parentFrame, JComponent contentPanel) {
         super(parentFrame);
         this.contentPanel = contentPanel;
         var panelDim = new Dimension(500, 300);

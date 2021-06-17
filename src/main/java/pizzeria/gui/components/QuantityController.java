@@ -1,6 +1,5 @@
 package pizzeria.gui.components;
 
-import pizzeria.gui.panels.AbstractGridBagPanel;
 import pizzeria.gui.panels.Observer;
 
 import javax.swing.*;

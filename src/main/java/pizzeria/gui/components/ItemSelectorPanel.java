@@ -1,8 +1,6 @@
 package pizzeria.gui.components;
 
-import pizzeria.gui.panels.AbstractGridBagPanel;
 import pizzeria.gui.panels.AddItemPanel;
-import pizzeria.gui.panels.MenuItemSelectPanel;
 import pizzeria.order_system.menu.exceptions.MenuItemNotFoundException;
 import pizzeria.order_system.menu.models.MenuItem;
 import pizzeria.order_system.menu.repositories.menu_item.MenuItemRepository;

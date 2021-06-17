@@ -1,5 +1,6 @@
 package pizzeria.gui.panels;
 
+import pizzeria.gui.components.AbstractGridBagPanel;
 import pizzeria.gui.components.Navbar;
 
 import javax.swing.*;
@@ -9,7 +10,7 @@ import static pizzeria.gui.settings.PizzeriaColors.BG_COLOR;
 
 public abstract class AbstractPanelWithNavbar extends AbstractGridBagPanel {
 
-    private Navbar navbar;
+    protected Navbar navbar;
 
     public AbstractPanelWithNavbar(JFrame parentFrame, JPanel previousPanel, String sectionTitle) {
         super(parentFrame);

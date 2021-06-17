@@ -1,6 +1,5 @@
 package pizzeria.gui.components;
 
-import pizzeria.gui.panels.AbstractGridBagPanel;
 import pizzeria.gui.panels.SubmitPanel;
 
 import javax.swing.*;
@@ -15,6 +14,8 @@ import static pizzeria.gui.settings.PizzeriaTypography.*;
 public class Navbar extends AbstractGridBagPanel {
 
     private final JButton submitBtn;
+    private JLabel sectionHeader;
+    private JButton backButton;
 
     public Navbar(JFrame parentFrame, String sectionTitle, JPanel panelToRemove, JPanel panelToAdd) {
         super(parentFrame);
@@ -22,7 +23,7 @@ public class Navbar extends AbstractGridBagPanel {
 
         setMinimumSize(new Dimension(1000, 50));
 
-        JButton backButton = new JButton(new ImageIcon(GO_BACK_IMG));
+        backButton = new JButton(new ImageIcon(GO_BACK_IMG));
         backButton.setBackground(BTN_COLOR);
         backButton.setBorder(null);
         backButton.setFocusPainted(false);
@@ -44,7 +45,7 @@ public class Navbar extends AbstractGridBagPanel {
         gbc.insets = new Insets(0, 30, 0, 0);
         add(backButton, gbc);
 
-        var sectionHeader = new SectionHeader(sectionTitle);
+        sectionHeader = new SectionHeader(sectionTitle);
         sectionHeader.setMinimumSize(new Dimension(350, 50));
         gbc.gridx = 1;
         gbc.weightx = 10;
@@ -79,7 +80,15 @@ public class Navbar extends AbstractGridBagPanel {
     }
 
     public void hideSubmitButton() {
-        submitBtn.setVisible(false);
+        remove(sectionHeader);
+        remove(submitBtn);
+
+        gbc.gridx = 1;
+        gbc.insets = new Insets(0, 100, 0 ,180);
+        add(sectionHeader, gbc);
+
+        revalidate();
+        repaint();
     }
 
 }
