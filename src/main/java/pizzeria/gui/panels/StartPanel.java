@@ -9,6 +9,7 @@ import static pizzeria.gui.settings.ComponentProperties.ACCENT_LINE_BORDER;
 import static pizzeria.gui.settings.ImagePaths.PIZZERIA_LOGO_IMG;
 import static pizzeria.gui.settings.PizzeriaColors.BG_COLOR;
 import static pizzeria.gui.settings.PizzeriaColors.ECRU_COLOR;
+import static pizzeria.gui.settings.PizzeriaTypography.H2_FONT;
 import static pizzeria.gui.settings.PizzeriaTypography.H3_FONT;
 
 public class StartPanel extends AbstractGridBagPanel {
@@ -17,16 +18,15 @@ public class StartPanel extends AbstractGridBagPanel {
         super(parentFrame);
 
         setBackground(BG_COLOR);
-        JLabel label = new JLabel();
-        label.setIcon(new ImageIcon(PIZZERIA_LOGO_IMG));
-        label.setFont(new Font(Font.SERIF, Font.BOLD, 30));
+        JLabel label = new JLabel(new ImageIcon(PIZZERIA_LOGO_IMG));
+        label.setFont(H2_FONT);
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.ipady = 50;
         gbc.insets = new Insets(-50, 0, 0, 0);
         add(label, gbc);
 
-        JButton startBtn = new JButton(" Rozpocznij ");
+        JButton startBtn = new JButton("Rozpocznij");
         startBtn.addActionListener(e -> {
             if (e.getSource() == startBtn) {
                 parentFrame.remove(StartPanel.this);
@@ -43,7 +43,7 @@ public class StartPanel extends AbstractGridBagPanel {
         gbc.gridy = 1;
         gbc.insets = new Insets(0, 0, 0, 0);
         gbc.ipady = 40;
-        gbc.ipadx = 20;
+        gbc.ipadx = 50;
         add(startBtn, gbc);
 
 

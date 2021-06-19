@@ -8,7 +8,6 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.util.List;
 
-import static pizzeria.gui.settings.PizzeriaColors.BG_COLOR;
 import static pizzeria.gui.settings.PizzeriaColors.ECRU_COLOR;
 import static pizzeria.gui.settings.PizzeriaTypography.H3_FONT;
 import static pizzeria.gui.settings.PizzeriaTypography.H4_FONT;

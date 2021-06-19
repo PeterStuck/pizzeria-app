@@ -8,8 +8,6 @@ import java.awt.*;
 
 public class MainFrame extends JFrame implements Runnable {
 
-    private final GridBagConstraints gbc = new GridBagConstraints();
-
     private final Order order;
 
     public MainFrame() {
@@ -19,6 +17,7 @@ public class MainFrame extends JFrame implements Runnable {
         setLayout(new GridBagLayout());
         setSize(new Dimension(1000, 500));
 
+        GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridy = 0;
         gbc.gridx = 0;
         add(new StartPanel(this), gbc);

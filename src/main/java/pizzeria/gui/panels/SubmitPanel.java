@@ -9,9 +9,6 @@ import pizzeria.order_system.order.models.Order;
 import javax.swing.*;
 import java.awt.*;
 
-import static pizzeria.gui.settings.ComponentProperties.ACCENT_LINE_BORDER;
-import static pizzeria.gui.settings.PizzeriaColors.BTN_COLOR;
-
 public class SubmitPanel extends AbstractPanelWithNavbar {
 
     private FileOrderLogWriter orderLogWriter;
@@ -48,7 +45,5 @@ public class SubmitPanel extends AbstractPanelWithNavbar {
         gbc.gridx = 0;
         gbc.gridy = 1;
         add(cp, gbc);
-
     }
-
 }

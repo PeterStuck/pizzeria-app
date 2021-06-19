@@ -1,0 +1,6 @@
+pizzeria\order_system\menu\repositories\menu_item\DrinkRepositoryTest.class
+pizzeria\order_system\menu\repositories\menu\InMemoryMenuRepositoryTest.class
+pizzeria\order_system\order\utility\OrderTotalCalculatorTest.class
+pizzeria\order_system\menu\models\PizzaTest.class
+pizzeria\order_system\menu\repositories\menu_item\PizzaRepositoryTest.class
+pizzeria\order_system\order\models\OrderTest.class

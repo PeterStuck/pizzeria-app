@@ -22,7 +22,6 @@ public class OrderSubmitPanel extends AbstractGridBagPanel {
     private final Dimension quantityAndPriceDim ;
     private final Dimension totalPriceDim;
 
-    private final Border emptyBorder;
     private final Insets orderItemInsets;
     private final Insets rightOrderItemInsets;
 
@@ -36,8 +35,6 @@ public class OrderSubmitPanel extends AbstractGridBagPanel {
         nameLabDim = new Dimension(190, 30);
         quantityAndPriceDim = new Dimension(100, 30);
         totalPriceDim = new Dimension(220, 30);
-
-        emptyBorder = BorderFactory.createEmptyBorder(0, 10, 0, 0);
 
         orderItemInsets = new Insets(10, 10, 0, 0);
         rightOrderItemInsets = new Insets(10, 10, 0, 30);

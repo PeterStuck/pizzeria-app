@@ -10,7 +10,6 @@ import java.awt.event.ActionListener;
 import static pizzeria.gui.settings.ImagePaths.BILL_IMG;
 import static pizzeria.gui.settings.ImagePaths.GO_BACK_IMG;
 import static pizzeria.gui.settings.PizzeriaColors.*;
-import static pizzeria.gui.settings.PizzeriaTypography.*;
 
 public class Navbar extends AbstractGridBagPanel {
 

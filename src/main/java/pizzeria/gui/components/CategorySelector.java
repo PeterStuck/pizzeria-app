@@ -18,12 +18,11 @@ public class CategorySelector extends AbstractGridBagPanel {
         setMaximumSize(labelDim);
         setMinimumSize(labelDim);
         setBackground(BTN_COLOR);
-        setBorder(BorderFactory.createMatteBorder(0,0,3,3,ACCENT_COLOR));
+        setBorder(BorderFactory.createMatteBorder(0,0,3,3, ACCENT_COLOR));
 
-        JLabel icon = new JLabel();
+        JLabel icon = new JLabel(new ImageIcon(path));
         gbc.gridx = 0;
         gbc.gridy = 0;
-        icon.setIcon(new ImageIcon(path));
         this.add(icon, gbc);
 
         JLabel description = new JLabel(desc);
